@@ -1,0 +1,15 @@
+##
+# User configuration
+# ==================
+##
+user:
+    name: florian
+
+##
+# Base package configuration
+# ==========================
+##
+base_packages:
+    - base-devel
+    - git
+    - nushell

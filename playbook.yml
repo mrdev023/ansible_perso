@@ -1,0 +1,8 @@
+---
+- name: Install secure arch linux environment
+  hosts: hosts
+  connection: local
+  become: true
+
+  roles:
+    - { role: base, tags: ['base'] }
