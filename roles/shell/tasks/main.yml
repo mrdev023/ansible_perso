@@ -2,3 +2,4 @@
 
 - ansible.builtin.import_tasks: nushell.yml
   name: nushell
+  when: user.shell == "nushell"

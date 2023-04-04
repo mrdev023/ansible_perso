@@ -4,6 +4,10 @@
 ##
 user:
     name: florian
+    shell: nushell
+
+with:
+    games: true
 
 ##
 # Base package configuration

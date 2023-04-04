@@ -1,0 +1,5 @@
+---
+
+- ansible.builtin.import_tasks: games.yml
+  name: games
+  when: with.games
