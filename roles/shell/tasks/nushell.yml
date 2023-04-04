@@ -6,8 +6,22 @@
           - nushell
           - zoxide
           - starship
+          - jq
       state: present
   register: nushellinstall
   until: nushellinstall is success
   retries: 10
   delay: 2
+
+- name: Clone dotfiles_nushell
+  become_user: "{{ user.name }}"
+  git:
+      repo: git@github.com:mrdev023/dotfiles_nushell.git
+      dest: /home/{{ user.name }}/dotfiles/nushell
+  register: clone_dotfiles_nushell
+
+- name: Configure nushell dotfiles
+  become_user: "{{ user.name }}"
+  shell: >-
+    cd /home/{{ user.name }}/dotfiles/nushell && ./install.sh
+  when: clone_dotfiles_nushell.changed

@@ -21,3 +21,4 @@ ansible-playbook -i inventory/localhost playbook.yml
 # Usefull link
 
 - https://github.com/id101010/ansible-archlinux/
+- https://github.com/markosamuli/ansible-asdf
