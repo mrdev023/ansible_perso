@@ -1,0 +1,13 @@
+---
+
+- name: Install nushell with completion and syntax
+  pacman:
+      name:
+          - nushell
+          - zoxide
+          - starship
+      state: present
+  register: nushellinstall
+  until: nushellinstall is success
+  retries: 10
+  delay: 2

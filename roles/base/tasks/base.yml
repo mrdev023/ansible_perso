@@ -21,8 +21,6 @@
   until: task_result is success
   retries: 10
   delay: 2
-  notify:
-      - rkhunter propupdate
 
 - name: Install base packages
   pacman:
@@ -32,8 +30,6 @@
   until: task_result is success
   retries: 10
   delay: 2
-  notify:
-      - rkhunter propupdate
 
 - name: Install yay as aur helper
   aur:

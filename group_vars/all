@@ -12,4 +12,3 @@ user:
 base_packages:
     - base-devel
     - git
-    - nushell
