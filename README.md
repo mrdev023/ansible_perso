@@ -1,17 +1,15 @@
 # Requirements
 
-```bash
-pacman -S ansible
-```
+- ansible
 
 # Install
 
 ```bash
-git clone --recurse-submodules -j8 git@github.com:mrdev023/ansible_perso_arch.git
+git clone --recurse-submodules -j8 git@github.com:mrdev023/ansible_perso.git -b $(source /etc/os-release && echo $ID)
 ```
 
 ```bash
-cd ansible_perso_arch
+cd ansible_perso
 ```
 
 ```bash
