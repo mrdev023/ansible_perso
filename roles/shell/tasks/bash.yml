@@ -1,0 +1,22 @@
+---
+
+- name: Download User installable scripts (non-root)
+  ansible.builtin.get_url:
+    url: "https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/{{ (shell == 'bash') | ternary('install','uninstall') }}.sh"
+    dest: "/home/{{ ansible_user_id }}/omb.sh"
+    mode: "0744"
+  register: get_url
+
+- name: Install OhMyBash
+  ansible.builtin.command:
+    cmd: "/home/{{ ansible_user_id }}/omb.sh"
+  when: get_url.changed
+
+- name: Ensure bash profile lines are set
+  ansible.builtin.replace:
+    path: /home/{{ ansible_user_id }}/.bashrc
+    after: 'plugins=('
+    before: ')'
+    regexp: 'git'
+    replace: 'git bundler osx rake ruby'
+    state: "{{ (shell == 'bash') | ternary('present','absent') }}"

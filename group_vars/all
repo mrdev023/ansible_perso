@@ -2,17 +2,8 @@
 # User configuration
 # ==================
 ##
-user:
-    name: florian
-    shell: nushell
+shell: bash
 
-with:
-    games: true
-
-##
-# Base package configuration
-# ==========================
-##
-base_packages:
-    - base-devel
-    - git
+development_tools:
+    ruby: false
+    rust: false

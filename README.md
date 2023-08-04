@@ -1,17 +1,17 @@
 # Requirements
 
 ```bash
-pacman -S ansible
+sudo dnf install ansible
 ```
 
 # Install
 
 ```bash
-git clone --recurse-submodules -j8 git@github.com:mrdev023/ansible_perso_arch.git
+git clone -j8 git@github.com:mrdev023/ansible_perso.git -b fedora
 ```
 
 ```bash
-cd ansible_perso_arch
+cd ansible_perso
 ```
 
 ```bash

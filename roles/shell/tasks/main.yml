@@ -1,5 +1,4 @@
 ---
 
-- ansible.builtin.import_tasks: nushell.yml
-  name: nushell
-  when: user.shell == "nushell"
+- ansible.builtin.import_tasks: bash.yml
+  name: bash

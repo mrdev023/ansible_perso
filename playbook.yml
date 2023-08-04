@@ -1,12 +1,7 @@
 ---
-- name: Install secure arch linux environment
+- name: Install secure environment
   hosts: hosts
   connection: local
-  become: true
 
   roles:
-    - { role: base, tags: ['base'] }
     - { role: shell, tags: ['shell'] }
-    - { role: keepass, tags: ['keepass'] }
-    - { role: spotify, tags: ['spotify'] }
-    - { role: games, tags: ['games'] }
