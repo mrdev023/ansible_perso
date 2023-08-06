@@ -4,4 +4,5 @@
   connection: local
 
   roles:
+    - { role: falchion, tags: ['falchion'] }
     - { role: shell, tags: ['shell'] }

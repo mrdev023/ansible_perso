@@ -15,7 +15,7 @@ cd ansible_perso
 ```
 
 ```bash
-ansible-playbook -i inventory/localhost playbook.yml
+ansible-playbook -i inventory/localhost playbook.yml --ask-become-pass
 ```
 
 # Usefull link

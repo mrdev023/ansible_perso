@@ -1,0 +1,15 @@
+---
+
+- name: Download HWDB patch
+  ansible.builtin.get_url:
+    url: "https://raw.githubusercontent.com/mrdev023/falchion-shutdown/master/99-asus-falchion.hwdb"
+    dest: "/etc/udev/hwdb.d/99-asus-falchion.hwdb"
+    mode: "0644"
+  become: yes
+  register: get_url
+
+- name: Configure HWDB
+  ansible.builtin.command:
+    cmd: "systemd-hwdb update"
+  when: get_url.changed
+  become: yes
