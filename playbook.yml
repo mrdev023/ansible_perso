@@ -5,5 +5,5 @@
 
   roles:
     - { role: falchion, tags: ['falchion'] }
-    - { role: shell, tags: ['shell'] }
+    # - { role: shell, tags: ['shell'] } Not finished
     - { role: hyprland, tags: ['hyprland'] }
