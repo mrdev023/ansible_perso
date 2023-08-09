@@ -22,6 +22,12 @@ ansible-galaxy collection install community.general
 ansible-playbook -i inventory/localhost playbook.yml --ask-become-pass
 ```
 
+# From auto script
+
+```bash
+curl -s -L https://raw.githubusercontent.com/mrdev023/ansible_perso/fedora/configure.sh | sh
+```
+
 # Usefull link
 
 - https://github.com/id101010/ansible-archlinux/
