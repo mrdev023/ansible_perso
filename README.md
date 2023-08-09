@@ -15,6 +15,10 @@ cd ansible_perso
 ```
 
 ```bash
+ansible-galaxy collection install community.general
+```
+
+```bash
 ansible-playbook -i inventory/localhost playbook.yml --ask-become-pass
 ```
 
