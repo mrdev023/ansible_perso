@@ -13,6 +13,10 @@
       - hyprland-nvidia
       - xdg-desktop-portal-hyprland
       - eww-wayland-git
+      - "@C Development Tools and Libraries" # For hyprload
+      - pixman-devel # For hyprload
+      - libglvnd-devel # For hyprload
+      - cairo-devel # For hyprload
       - hyprland-devel # For hyprload
       - libdrm-devel # For hyprload
       - libinput-devel # For hyprload

@@ -1,5 +1,11 @@
 #!/bin/bash
 
+select var in $(ls group_vars/all.*)
+do
+  \cp -fv "$var" ./group_vars/all
+  break
+done
+
 # Prepare system
 sudo dnf install -y ansible
 ansible-galaxy collection install community.general
@@ -9,13 +15,6 @@ git -C ~/.ansible_perso pull || git clone -j8 https://github.com/mrdev023/ansibl
 
 # Go to repo
 cd ~/.ansible_perso
-
-vars=$(ls group_vars/all.*)
-select var in "${vars[@]}"
-do
-  \cp -fv "$var" ./group_vars/all
-  break
-done
 
 # Run
 ansible-playbook -i inventory/localhost playbook.yml --ask-become-pass

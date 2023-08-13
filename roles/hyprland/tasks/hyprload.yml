@@ -14,7 +14,7 @@
 
 - name: Build hyprload
   ansible.builtin.command: bash -c "HYPRLAND_HEADERS=/usr/include/hyprland make -C ~/.local/share/hyprload/src install"
-  when: hyprload_dl.changed
+  # when: hyprload_dl.changed
 
 - name: Copy hyprload conf
   ansible.builtin.template:
