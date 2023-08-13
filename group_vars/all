@@ -1,9 +1,0 @@
-##
-# User configuration
-# ==================
-##
-shell: bash
-
-development_tools:
-    ruby: false
-    rust: false
