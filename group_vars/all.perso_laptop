@@ -1,0 +1,12 @@
+##
+# User configuration
+# ==================
+##
+shell: bash
+
+monitors:
+  - { name: 'eDP-1', resolution: '3840x2160@60', position: '0x0', scale: '2' }
+
+development_tools:
+  ruby: false
+  rust: false
