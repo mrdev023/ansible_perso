@@ -2,3 +2,6 @@
 
 - ansible.builtin.import_tasks: hyprland.yml
   name: hyprland
+
+- ansible.builtin.import_tasks: dunst.yml
+  name: dunst

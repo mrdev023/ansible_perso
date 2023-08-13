@@ -11,10 +11,23 @@
   ansible.builtin.dnf:
     name:
       - hyprland-nvidia
+      - xdg-desktop-portal-hyprland
     state: latest
   become: yes
 
 - name: Copy hyprland conf
-  ansible.builtin.copy:
-    src: .
-    dest: ~/.config/hypr
+  ansible.builtin.template:
+    src: "{{ item.file }}"
+    dest: "~/.config/hypr/{{ item.file | replace('.j2', '') }}"
+    mode: "{{ item.mode }}"
+  loop:
+    - { file: hyprland.conf.j2, mode: '0600' }
+    - { file: set_volume.sh.j2, mode: '0700' }
+
+- name: 'Patch env for cursor'
+  ansible.builtin.lineinfile:
+    path: /usr/share/wayland-sessions/hyprland.desktop
+    state: present
+    regexp: '^Exec=Hyprland'
+    line: "Exec=env WLR_NO_HARDWARE_CURSORS=1 Hyprland"
+  become: yes
