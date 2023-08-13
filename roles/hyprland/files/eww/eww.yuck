@@ -58,14 +58,16 @@
   "playerctl --follow metadata --format '\{\{ artist \}\} - {{ title }}' || true")
 
 (defwindow bar
-  :monitor 0
+  :monitor 1
   :windowtype "dock"
   :geometry (geometry :x "0%"
-                      :y "10px"
-                      :width "100%"
-                      :height "20px"
+                      :y "20px"
+                      :width "90%"
+                      :height "30px"
                       :anchor "top center")
-  :stacking "bt"
+  :stacking "fg"
+  :reserve (struts :distance "40px" :side "top")
+  :wm-ignore false
   :exclusive true
   :focusable false
   (bar))
