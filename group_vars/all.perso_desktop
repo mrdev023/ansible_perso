@@ -1,0 +1,14 @@
+##
+# User configuration
+# ==================
+##
+shell: bash
+
+monitors:
+  - { name: 'DP-3', resolution: '1920x1080@60', position: '0x0', scale: '1' }
+  - { name: 'DP-2', resolution: '1920x1080@60', position: '1920x0', scale: '1' }
+  - { name: 'DP-1', resolution: '1360x768@60', position: '3840x0', scale: '1' }
+
+development_tools:
+  ruby: false
+  rust: false
