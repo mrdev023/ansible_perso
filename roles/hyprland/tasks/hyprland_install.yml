@@ -1,0 +1,23 @@
+---
+
+- name: Enable solopasha/hyprland
+  community.general.copr:
+      host: copr.fedorainfracloud.org
+      state: enabled
+      name: solopasha/hyprland
+  become: yes
+
+- name: Install hyprland support
+  ansible.builtin.dnf:
+    name:
+      - hyprland-nvidia
+      - hyprland-devel
+      - libdrm-devel # For hyprload
+      - libinput-devel # For hyprload
+      - libudev-devel # For hyprload
+      - wayland-devel # For hyprload
+      - libxkbcommon-devel # For hyprload
+      - xcb-util-wm-devel # For hyprload
+      - xdg-desktop-portal-hyprland
+    state: latest
+  become: yes

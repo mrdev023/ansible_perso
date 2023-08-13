@@ -1,0 +1,39 @@
+---
+
+# From https://raw.githubusercontent.com/Duckonaut/hyprload/main/install.sh
+
+- name: Download the hyprload repo
+  ansible.builtin.git:
+    repo: 'https://github.com/duckonaut/hyprload.git'
+    dest: '~/.local/share/hyprload/src'
+    depth: 1
+    update: yes
+    single_branch: yes
+    version: main
+  register: hyprload_dl
+
+- name: Build hyprload
+  ansible.builtin.command: bash -c "HYPRLAND_HEADERS=/usr/include/hyprland make -C ~/.local/share/hyprload/src install"
+  when: hyprload_dl.changed
+
+- name: Gather the package facts
+  ansible.builtin.package_facts:
+    manager: auto
+  when: hyprload_dl.changed
+
+- name: Print the package facts
+  ansible.builtin.set_fact:
+    version: "v{{ansible_facts.packages['hyprland-devel'][0].version }}"
+  when: hyprload_dl.changed
+
+- name: Set last commit ID
+  ansible.builtin.command: "bash -c \"curl -vs https://api.github.com/repos/hyprwm/Hyprland/tags | jq '.[] | select(.name == \\\"{{ version }}\\\") | .commit.sha' | sed 's/\\\"//g' > ~/.local/share/hyprload/hyprload.hlcommit\""
+  when: hyprload_dl.changed
+
+- name: Copy hyprload conf
+  ansible.builtin.template:
+    src: "{{ item.file }}"
+    dest: "~/.config/hypr/{{ item.file | replace('.j2', '') }}"
+    mode: "{{ item.mode }}"
+  loop:
+    - { file: hyprload.toml.j2, mode: '0600' }

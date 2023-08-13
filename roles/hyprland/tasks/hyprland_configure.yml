@@ -1,20 +1,5 @@
 ---
 
-- name: Enable solopasha/hyprland
-  community.general.copr:
-    host: copr.fedorainfracloud.org
-    state: enabled
-    name: solopasha/hyprland
-  become: yes
-
-- name: Install hyprland with nvidia support
-  ansible.builtin.dnf:
-    name:
-      - hyprland-nvidia
-      - xdg-desktop-portal-hyprland
-    state: latest
-  become: yes
-
 - name: Copy hyprland conf
   ansible.builtin.template:
     src: "{{ item.file }}"
