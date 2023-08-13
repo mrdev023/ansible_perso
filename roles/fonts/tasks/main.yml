@@ -1,0 +1,20 @@
+---
+
+- name: Download the NerdFonts repo
+  ansible.builtin.git:
+    repo: 'https://github.com/ryanoasis/nerd-fonts.git'
+    dest: '~/.nerd_fonts'
+    depth: 1
+    update: yes
+    single_branch: yes
+    version: master
+  register: font_dl
+
+- name: Install FiraCode and FiraMono
+  ansible.builtin.command:
+    chdir: ~/.nerd_fonts
+    argv:
+      - ./install.sh
+      - FiraCode
+      - FiraMono
+  when: font_dl.changed

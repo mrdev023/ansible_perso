@@ -1,16 +1,16 @@
 ---
 
-- name: Install dunst
+- name: Install kitty
   ansible.builtin.dnf:
     name:
-      - dunst
+      - kitty
     state: latest
   become: yes
 
-- name: Copy dunst conf
+- name: Copy kitty conf
   ansible.builtin.template:
     src: "{{ item.file }}"
     dest: "~/.config/hypr/{{ item.file | replace('.j2', '') }}"
     mode: "{{ item.mode }}"
   loop:
-    - { file: dunstrc.j2, mode: '0600' }
+    - { file: kitty.conf.j2, mode: '0600' }

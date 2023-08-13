@@ -1,7 +1,10 @@
 ---
 
-- ansible.builtin.import_tasks: hyprland.yml
-  name: hyprland
-
 - ansible.builtin.import_tasks: dunst.yml
   name: dunst
+
+- ansible.builtin.import_tasks: kitty.yml
+  name: kitty
+
+- ansible.builtin.import_tasks: hyprland.yml
+  name: hyprland
