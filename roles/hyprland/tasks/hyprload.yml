@@ -16,16 +16,16 @@
   ansible.builtin.command: bash -c "HYPRLAND_HEADERS=/usr/include/hyprland make -C ~/.local/share/hyprload/src install"
   when: hyprload_dl.changed
 
-- name: Gather the package facts
-  ansible.builtin.package_facts:
-    manager: auto
+#- name: Gather the package facts
+#  ansible.builtin.package_facts:
+#    manager: auto
 
-- name: Print the package facts
-  ansible.builtin.set_fact:
-    version: "v{{ansible_facts.packages['hyprland-devel'][0].version }}"
-
-- name: Set last commit ID
-  ansible.builtin.command: "bash -c \"curl -vs https://api.github.com/repos/hyprwm/Hyprland/tags | jq '.[] | select(.name == \\\"{{ version }}\\\") | .commit.sha' | sed 's/\\\"//g' > ~/.local/share/hyprload/hyprload.hlcommit\""
+#- name: Print the package facts
+#  ansible.builtin.set_fact:
+#    version: "v{{ansible_facts.packages['hyprland-devel'][0].version }}"
+#
+#- name: Set last commit ID
+#  ansible.builtin.command: "bash -c \"curl -vs https://api.github.com/repos/hyprwm/Hyprland/tags | jq '.[] | select(.name == \\\"{{ version }}\\\") | .commit.sha' | sed 's/\\\"//g' > ~/.local/share/hyprload/hyprload.hlcommit\""
 
 - name: Copy hyprload conf
   ansible.builtin.template:
