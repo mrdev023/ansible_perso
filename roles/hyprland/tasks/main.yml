@@ -9,6 +9,9 @@
 - ansible.builtin.import_tasks: kitty.yml
   name: kitty
 
+- ansible.builtin.import_tasks: eww.yml
+  name: eww
+
 - ansible.builtin.import_tasks: hyprload.yml
   name: hyprload
 

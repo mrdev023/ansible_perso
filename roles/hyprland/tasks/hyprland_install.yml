@@ -11,13 +11,20 @@
   ansible.builtin.dnf:
     name:
       - hyprland-nvidia
-      - hyprland-devel
+      - xdg-desktop-portal-hyprland
+      - eww-wayland-git
+      - hyprland-devel # For hyprload
       - libdrm-devel # For hyprload
       - libinput-devel # For hyprload
       - libudev-devel # For hyprload
       - wayland-devel # For hyprload
       - libxkbcommon-devel # For hyprload
       - xcb-util-wm-devel # For hyprload
-      - xdg-desktop-portal-hyprland
     state: latest
   become: yes
+
+- name: Check directory exist
+  ansible.builtin.file:
+    path: ~/.config/hypr/
+    state: directory
+    mode: '0700'

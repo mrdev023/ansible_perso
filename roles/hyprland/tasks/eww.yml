@@ -1,0 +1,29 @@
+---
+
+- name: Check directory exist
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: '0700'
+  loop:
+    - ~/.config/eww
+    - ~/.config/hypr/eww/
+    - ~/.config/hypr/eww/scripts
+
+- name: Copy files
+  ansible.builtin.copy:
+    src: "eww/{{ item.file }}"
+    dest: "~/.config/hypr/eww/{{ item.file }}"
+    mode: "{{ item.mode }}"
+  loop:
+    - { file: eww.yuck, mode: '0600' }
+    - { file: scripts/getvol, mode: '0700' }
+    - { file: scripts/start, mode: '0700' }
+
+- name: Copy eww conf
+  ansible.builtin.template:
+    src: "{{ item.file }}"
+    dest: "~/.config/hypr/eww/{{ item.file | replace('.j2', '') }}"
+    mode: "{{ item.mode }}"
+  loop:
+    - { file: eww.scss.j2, mode: '0600' }
