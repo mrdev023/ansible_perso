@@ -44,6 +44,8 @@ input {
 
     touchpad {
         natural_scroll = no
+        disable_while_typing = yes
+        tap-to-click = yes
     }
 
     sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
@@ -106,7 +108,8 @@ master {
 
 gestures {
     # See https://wiki.hyprland.org/Configuring/Variables/ for more
-    workspace_swipe = off
+    workspace_swipe = on
+    workspace_swipe_forever = on
 }
 
 # Example per-device config
