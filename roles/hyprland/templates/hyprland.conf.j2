@@ -18,6 +18,12 @@ monitor={{ monitor.name }},{{ monitor.resolution }},{{ monitor.position }},{{ mo
 exec-once = dunst -conf ~/.config/hypr/dunstrc
 exec-once = ~/.local/share/hyprload/hyprload.sh
 
+# Keyring daemon
+exec-once = gnome-keyring-daemon --start --components=gpg
+exec-once = gnome-keyring-daemon --start --components=secrets
+exec-once = gnome-keyring-daemon --start --components=ssh
+exec-once = gnome-keyring-daemon --start --components=pkcs11
+
 # Source a file (multi-file configs)
 # source = ~/.config/hypr/myColors.conf
 
