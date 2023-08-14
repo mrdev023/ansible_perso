@@ -13,6 +13,7 @@
       - hyprland-nvidia
       - xdg-desktop-portal-hyprland
       - eww-wayland-git
+      - playerctl # To control media
       - "@C Development Tools and Libraries" # For hyprload
       - pixman-devel # For hyprload
       - libglvnd-devel # For hyprload
