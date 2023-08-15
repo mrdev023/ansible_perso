@@ -10,11 +10,19 @@ monitors:
   - { name: 'DP-1', resolution: '1360x768@60', position: '3840x0', scale: '1' }
 
 colors:
-  primary: '#800084'
-  on_primary: '#ffd6f7'
-  background: '#2f3e96'
-  background_opacity: '0.3'
-  on_background: '#dee0ff'
+  primary: '#ffade2'
+  on_primary: '#5f004e'
+  primary_container: '#8e004a'
+  on_primary_container: '#ffd9e2'
+  secondary: '#c3c0ff'
+  on_secondary: '#282377'
+  secondary_container: '#3f3c8f'
+  on_secondary_container: '#e2dfff'
+  background: '#3a0031'
+  on_background: '#ffd7ef'
+  background_opacity: 0.3
+  error_container: '#7e0007'
+  on_error_container: '#ffb4ab'
 
 development_tools:
   ruby: false

@@ -32,3 +32,85 @@ curl -s -L https://raw.githubusercontent.com/mrdev023/ansible_perso/fedora/confi
 
 - https://github.com/id101010/ansible-archlinux/
 - https://github.com/markosamuli/ansible-asdf
+
+# Color palette
+
+## primary
+
+EWW:
+
+- Current workspace
+- Volume Foreground
+
+## on_primary
+
+EWW:
+
+- Volume Background
+
+## primary_container
+
+Dunst:
+
+- Normal level background
+
+## on_primary_container
+
+Dunst:
+
+- Normal level foreground
+
+## secondary
+
+Not used
+
+## on_secondary
+
+Not used
+
+## secondary_container
+
+Dunst:
+
+- Low level background
+
+## on_secondary_container
+
+Dunst:
+
+- Low level foreground
+
+## background
+
+EWW:
+
+- Background
+
+Kitty
+
+- Background
+
+## on_background
+
+EWW:
+
+- Text
+- Unused and used workspace
+
+## background_opacity
+
+Kitty:
+
+- Background opacity
+
+## error_container
+
+Dunst:
+
+- Critical level background
+
+## on_error_container
+
+Dunst:
+
+- Critical level foreground

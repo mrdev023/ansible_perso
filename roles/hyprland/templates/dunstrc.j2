@@ -71,30 +71,20 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    ; background = "#282828"
-    ; foreground = "#928374"
-
-    ; background = "#a89984"
-    ; foreground = "#3c3836"
-
-    background = "#0A0B0D"
-    foreground = "#FFFFB7"
+    background = "{{ colors.secondary_container }}"
+    foreground = "{{ colors.on_secondary_container }}"
     timeout = 8
     # Icon for notifications with low urgency, uncomment to enable
     #icon = /path/to/icon
 
 [urgency_normal]
-    ; background = "#333333"
-    ; foreground = "#ebdbb2"
-    background = "#bdae93"
-    foreground = "#3c3836"
+    background = "{{ colors.primary_container }}"
+    foreground = "{{ colors.on_primary_container }}"
     timeout = 10
 
 [urgency_critical]
-    ; background = "#703838"
-    ; foreground = "#ebdbb2"
-    background = "#fb4934"
-    foreground = "#32302f"
+    background = "{{ colors.error_container }}"
+    foreground = "{{ colors.on_error_container }}"
     ; frame_color = "#CCA83B"
     timeout = 0
 
