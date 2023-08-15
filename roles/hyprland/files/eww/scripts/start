@@ -1,3 +1,0 @@
-# kill any running instances if they exist
-eww kill
-eww -c ~/.config/hypr/eww open bar

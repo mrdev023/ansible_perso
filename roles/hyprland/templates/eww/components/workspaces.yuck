@@ -1,0 +1,11 @@
+;; Variables
+{% for monitor in monitors %}
+(deflisten workspace{{ loop.index0 }} :initial "" "scripts/workspace {{ loop.index0 }} || true")
+{% endfor %}
+
+;; Widgets
+{% for monitor in monitors %}
+(defwidget workspaces{{ loop.index0 }} []
+  (literal :content workspace{{ loop.index0 }}))
+
+{% endfor %}

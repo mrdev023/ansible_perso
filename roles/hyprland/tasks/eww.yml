@@ -16,14 +16,16 @@
     dest: "~/.config/hypr/eww/{{ item.file }}"
     mode: "{{ item.mode }}"
   loop:
-    - { file: eww.yuck, mode: '0600' }
     - { file: scripts/, mode: '0700' }
     - { file: components/, mode: '0600' }
 
 - name: Copy eww conf
   ansible.builtin.template:
-    src: "{{ item.file }}"
-    dest: "~/.config/hypr/eww/{{ item.file | replace('.j2', '') }}"
+    src: "eww/{{ item.file }}"
+    dest: "~/.config/hypr/eww/{{ item.file }}"
     mode: "{{ item.mode }}"
   loop:
-    - { file: eww.scss.j2, mode: '0600' }
+    - { file: eww.scss, mode: '0600' }
+    - { file: eww.yuck, mode: '0600' }
+    - { file: components/workspaces.yuck, mode: '0600' }
+    - { file: scripts/start, mode: '0700' }

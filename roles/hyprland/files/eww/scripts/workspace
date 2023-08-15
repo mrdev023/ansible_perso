@@ -4,6 +4,7 @@ import socket
 import os
 import subprocess
 import json
+import sys
 
 HYPRLAND_INSTANCE_SIGNATURE = os.environ.get("HYPRLAND_INSTANCE_SIGNATURE")
 if HYPRLAND_INSTANCE_SIGNATURE is None:
@@ -11,7 +12,7 @@ if HYPRLAND_INSTANCE_SIGNATURE is None:
 
 socket_path = f"/tmp/hypr/{HYPRLAND_INSTANCE_SIGNATURE}/.socket2.sock"
 
-SCREEN = 0
+SCREEN = int(sys.argv[1])
 
 def run_hyprctl_dispatcher(dispatcher):
     return json.loads(subprocess.check_output(f'hyprctl {dispatcher} -j', shell=True, text=True))

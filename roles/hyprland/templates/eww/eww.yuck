@@ -4,15 +4,15 @@
 (include "components/sidestuff.yuck")
 
 ;; Widgets
-
-(defwidget bar []
+{% for monitor in monitors %}
+(defwidget bar{{ loop.index0 }} []
   (centerbox :orientation "h" :class "bar_content"
-    (workspaces)
+    (workspaces{{ loop.index0 }})
     (music)
     (sidestuff)))
 
-(defwindow bar
-  :monitor 0
+(defwindow bar{{ loop.index0 }}
+  :monitor {{ loop.index0 }}
   :windowtype "dock"
   :geometry (geometry :x "0%"
                       :y "2%"
@@ -21,4 +21,6 @@
   :stacking "fg"
   :exclusive true
   :focusable false
-  (bar))
+  (bar{{ loop.index0 }}))
+
+{% endfor %}

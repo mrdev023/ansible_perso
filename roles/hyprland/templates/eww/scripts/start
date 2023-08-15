@@ -1,0 +1,3 @@
+# kill any running instances if they exist
+eww kill
+eww -c ~/.config/hypr/eww open-many {%- for monitor in monitors %} bar{{ loop.index0 }}{% endfor %}
