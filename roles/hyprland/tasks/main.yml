@@ -12,6 +12,9 @@
 - ansible.builtin.import_tasks: eww.yml
   name: eww
 
+- ansible.builtin.import_tasks: swww.yml
+  name: swww
+
 - ansible.builtin.import_tasks: hyprload.yml
   name: hyprload
 

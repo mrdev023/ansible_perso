@@ -1,0 +1,30 @@
+---
+
+- name: Enable solopasha/hyprland
+  community.general.copr:
+    host: copr.fedorainfracloud.org
+    state: enabled
+    name: alebastr/sway-extras
+  become: yes
+
+- name: Install hyprland support
+  ansible.builtin.dnf:
+    name: swww
+  become: yes
+
+- name: Check directory exist
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: '0700'
+  loop:
+    - ~/.config/hypr/swww
+
+- name: Copy swww conf
+  ansible.builtin.copy:
+    src: "swww/{{ item.file }}"
+    dest: "~/.config/hypr/swww/{{ item.file }}"
+    mode: "{{ item.mode }}"
+  loop:
+    - { file: bg.gif, mode: '0600' }
+    - { file: start, mode: '0700' }

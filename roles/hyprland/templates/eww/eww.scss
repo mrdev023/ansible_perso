@@ -7,8 +7,8 @@
 {% if loop.index0 != 0 %}, {% endif -%}
 .bar{{ loop.index0 }}
 {%- endfor %} {
-  background-color: #3a3a3a;
-  color: #b0b4bc;
+  background-color: {{ colors.background }};
+  color: {{ colors.on_background }};
   border-radius: 10px;
 
   & > .bar_content {
@@ -20,12 +20,12 @@
 
 .sidestuff slider {
   all: unset;
-  color: #ffd5cd;
+  color: {{ colors.on_primary }};
 }
 
 .metric scale trough {
   all: unset;
-  background-color: #4e4e4e;
+  background-color: {{ colors.on_primary }};
   border-radius: 50px;
   min-height: 3px;
   min-width: 50px;
@@ -34,29 +34,25 @@
 
   & highlight {
     all: unset;
-    background-color: #D35D6E;
+    background-color: {{ colors.primary }};
     color: #000000;
     border-radius: 10px;
   }
 }
 
 
-.workspaces {
-  color: #D35D6E;
+.workspaces > .workspace {
+  border-radius: 999px;
 
-  & > .workspace {
-    border-radius: 999px;
+  &.current {
+    background-color: {{ colors.primary }};
+  }
 
-    &.current {
-      background-color: #D35D6E;
-    }
+  &.used {
+    background-color: {{ colors.on_background }};
+  }
 
-    &.used {
-      background-color: #b0b4bc;
-    }
-
-    &.unused {
-      border: 1px solid #b0b4bc;
-    }
+  &.unused {
+    border: 1px solid {{ colors.on_background }};
   }
 }

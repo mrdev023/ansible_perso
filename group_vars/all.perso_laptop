@@ -7,6 +7,13 @@ shell: bash
 monitors:
   - { name: 'eDP-1', resolution: '3840x2160@60', position: '0x0', scale: '2' }
 
+colors:
+  primary: '#800084'
+  on_primary: '#ffd6f7'
+  background: '#2f3e96'
+  background_opacity: 0.3
+  on_background: '#dee0ff'
+
 development_tools:
   ruby: false
   rust: false

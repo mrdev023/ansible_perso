@@ -9,6 +9,13 @@ monitors:
   - { name: 'DP-2', resolution: '1920x1080@60', position: '1920x0', scale: '1' }
   - { name: 'DP-1', resolution: '1360x768@60', position: '3840x0', scale: '1' }
 
+colors:
+  primary: '#800084'
+  on_primary: '#ffd6f7'
+  background: '#2f3e96'
+  background_opacity: '0.3'
+  on_background: '#dee0ff'
+
 development_tools:
   ruby: false
   rust: false
