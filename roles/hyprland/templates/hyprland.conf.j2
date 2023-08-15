@@ -57,9 +57,9 @@ general {
 
     gaps_in = 5
     gaps_out = 20
-    border_size = 2
-    col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
-    col.inactive_border = rgba(595959aa)
+    border_size = 3
+    col.active_border = rgb({{ colors.primary_container | replace('#', '') }})
+    col.inactive_border = rgb({{ colors.background | replace('#', '') }})
 
     layout = dwindle
 }
@@ -76,9 +76,10 @@ decoration {
     }
 
     drop_shadow = yes
-    shadow_range = 4
-    shadow_render_power = 3
-    col.shadow = rgba(1a1a1aee)
+    shadow_range = 15
+    shadow_render_power = 4
+    col.shadow = rgb({{ colors.primary_container | replace('#', '') }})
+    col.shadow_inactive = rgb({{ colors.background | replace('#', '') }})
 }
 
 animations {

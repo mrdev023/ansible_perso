@@ -54,6 +54,11 @@ Dunst:
 
 - Normal level background
 
+Hyperland:
+
+- Active window border
+- Active window shadow
+
 ## on_primary_container
 
 Dunst:
@@ -89,6 +94,11 @@ EWW:
 Kitty
 
 - Background
+
+Hyperland:
+
+- Inactive window border
+- Inactive window shadow
 
 ## on_background
 
