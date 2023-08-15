@@ -14,7 +14,7 @@
   (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
     (metric :label "🔊"
             :value volume
-            :onchange "amixer -D pulse sset Master {}%")
+            :onchange "scripts/setvol {}%")
     time))
 
 (defwidget workspaces []
@@ -34,6 +34,7 @@
     (box :class "label" label)
     (scale :min 0
            :max 101
+           :timeout 50
            :active {onchange != ""}
            :value value
            :onchange onchange)))
@@ -42,13 +43,11 @@
   :monitor 0
   :windowtype "dock"
   :geometry (geometry :x "0%"
-                      :y "20px"
-                      :width "100%"
+                      :y "2%"
+                      :width "98%"
                       :height "30px"
                       :anchor "top center")
   :stacking "fg"
-  :reserve (struts :distance "40px" :side "top")
-  :wm-ignore false
   :exclusive true
   :focusable false
   (bar))
