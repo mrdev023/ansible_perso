@@ -22,7 +22,7 @@ colors:
   on_secondary_container: '#e2dfff'
   background: '#3a0031'
   on_background: '#ffd7ef'
-  background_opacity: 0.7
+  background_opacity: 0.5
   error_container: '#7e0007'
   on_error_container: '#ffb4ab'
 
