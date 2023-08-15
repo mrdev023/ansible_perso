@@ -1,43 +1,15 @@
-;; Variables
-(deflisten music :initial "" "playerctl --follow metadata --format '{{ artist }} - {{ title }}' || true")
-(deflisten workspace :initial "" "scripts/workspace || true")
-(defpoll volume :interval "1s" "scripts/getvol")
-(defpoll time :interval "10s" "date '+%H:%M %b %d, %Y'")
+;; Includes
+(include "components/workspaces.yuck")
+(include "components/music.yuck")
+(include "components/sidestuff.yuck")
+
+;; Widgets
 
 (defwidget bar []
   (centerbox :orientation "h" :class "bar_content"
     (workspaces)
     (music)
     (sidestuff)))
-
-(defwidget sidestuff []
-  (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
-    (metric :label "🔊"
-            :value volume
-            :onchange "scripts/setvol {}%")
-    time))
-
-(defwidget workspaces []
-  (literal :content workspace))
-
-(defwidget music []
-  (box :class "music"
-       :orientation "h"
-       :space-evenly false
-       :halign "center"
-    {music != "" ? "🎵 ${music}" : ""}))
-
-(defwidget metric [label value onchange]
-  (box :orientation "h"
-       :class "metric"
-       :space-evenly false
-    (box :class "label" label)
-    (scale :min 0
-           :max 101
-           :timeout 50
-           :active {onchange != ""}
-           :value value
-           :onchange onchange)))
 
 (defwindow bar
   :monitor 0

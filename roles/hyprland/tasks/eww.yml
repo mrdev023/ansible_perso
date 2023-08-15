@@ -17,10 +17,8 @@
     mode: "{{ item.mode }}"
   loop:
     - { file: eww.yuck, mode: '0600' }
-    - { file: scripts/getvol, mode: '0700' }
-    - { file: scripts/setvol, mode: '0700' }
-    - { file: scripts/start, mode: '0700' }
-    - { file: scripts/workspace, mode: '0700' }
+    - { file: scripts/, mode: '0700' }
+    - { file: components/, mode: '0600' }
 
 - name: Copy eww conf
   ansible.builtin.template:

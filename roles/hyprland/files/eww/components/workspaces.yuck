@@ -1,0 +1,6 @@
+;; Variables
+(deflisten workspace :initial "" "scripts/workspace || true")
+
+;; Widgets
+(defwidget workspaces []
+  (literal :content workspace))

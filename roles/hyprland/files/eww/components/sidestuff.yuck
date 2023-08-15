@@ -1,0 +1,14 @@
+;; Includes
+(include "components/metric.yuck")
+
+;; Variables
+(defpoll volume :interval "1s" "scripts/getvol")
+(defpoll time :interval "10s" "date '+%H:%M %b %d, %Y'")
+
+;; Widgets
+(defwidget sidestuff []
+  (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
+    (metric :label "🔊"
+            :value volume
+            :onchange "scripts/setvol {}%")
+    time))
