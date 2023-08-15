@@ -10,7 +10,7 @@
   background-color: {{ colors.background }};
   color: {{ colors.on_background }};
   border-radius: 10px;
-  font-family: 'FiraCode Nerd Font';
+  font-family: '{{ font }}';
 
   & > .bar_content {
     padding: 10px 15px;
