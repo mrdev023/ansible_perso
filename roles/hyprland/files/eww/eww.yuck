@@ -5,7 +5,7 @@
 (defpoll time :interval "10s" "date '+%H:%M %b %d, %Y'")
 
 (defwidget bar []
-  (centerbox :orientation "h"
+  (centerbox :orientation "h" :class "bar_content"
     (workspaces)
     (music)
     (sidestuff)))
@@ -45,7 +45,6 @@
   :geometry (geometry :x "0%"
                       :y "2%"
                       :width "98%"
-                      :height "30px"
                       :anchor "top center")
   :stacking "fg"
   :exclusive true
