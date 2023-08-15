@@ -141,6 +141,7 @@ $mainMod = SUPER
 # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
 bind = $mainMod, RETURN, exec, kitty -c ~/.config/hypr/kitty.conf
 bind = $mainMod, C, killactive,
+bind = $mainMod SHIFT, C, exec, hyprpicker -a -f hex
 bind = $mainMod SHIFT, Q, exit,
 bind = $mainMod, E, exec, nautilus
 bind = $mainMod, V, togglefloating,
@@ -207,3 +208,5 @@ bindl=, XF86AudioNext, exec, playerctl next
 # Screen brightness controls
 bindl=, XF86MonBrightnessUp, exec, xbacklight -inc 5
 bindl=, XF86MonBrightnessDown, exec, xbacklight -dec 5
+
+exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP

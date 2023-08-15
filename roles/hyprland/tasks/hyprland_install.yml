@@ -11,7 +11,11 @@
   ansible.builtin.dnf:
     name:
       - hyprland-nvidia
-      - xdg-desktop-portal-hyprland
+      - hyprpicker # Colorpicker
+      - wl-clipboard # For hyprpicker
+      - xdg-desktop-portal-hyprland # Screensharing
+      - pipewire # Screensharing
+      - wireplumber # Screensharing
       - eww-wayland-git
       - playerctl # To control media
       - "@C Development Tools and Libraries" # For hyprload
