@@ -14,6 +14,7 @@
       - xdg-desktop-portal-hyprland
       - eww-wayland-git
       - playerctl # To control media
+      - socat # To listen workspace changement from script in hyprland
       - "@C Development Tools and Libraries" # For hyprload
       - pixman-devel # For hyprload
       - libglvnd-devel # For hyprload

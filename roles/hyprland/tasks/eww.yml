@@ -19,6 +19,7 @@
     - { file: eww.yuck, mode: '0600' }
     - { file: scripts/getvol, mode: '0700' }
     - { file: scripts/start, mode: '0700' }
+    - { file: scripts/workspace, mode: '0700' }
 
 - name: Copy eww conf
   ansible.builtin.template:

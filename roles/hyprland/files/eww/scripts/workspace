@@ -1,0 +1,98 @@
+#!/usr/bin/env python
+
+import socket
+import os
+import subprocess
+import json
+
+HYPRLAND_INSTANCE_SIGNATURE = os.environ.get("HYPRLAND_INSTANCE_SIGNATURE")
+if HYPRLAND_INSTANCE_SIGNATURE is None:
+    raise ValueError("HYPRLAND_INSTANCE_SIGNATURE environment variable is not set")
+
+socket_path = f"/tmp/hypr/{HYPRLAND_INSTANCE_SIGNATURE}/.socket2.sock"
+
+SCREEN = 0
+
+def run_hyprctl_dispatcher(dispatcher):
+    return json.loads(subprocess.check_output(f'hyprctl {dispatcher} -j', shell=True, text=True))
+
+def filter_for_screen(value):
+    return value > SCREEN * 10 and value <= (SCREEN + 1) * 10
+
+WORKSPACES = run_hyprctl_dispatcher('workspaces')
+WORKSPACES = filter(lambda w: filter_for_screen(w['id']), WORKSPACES)
+WORKSPACES = list(map(lambda w: w['id'], WORKSPACES))
+
+CURRENT = SCREEN * 10
+for m in run_hyprctl_dispatcher('monitors'):
+    if m['id'] == SCREEN:
+        CURRENT = m['activeWorkspace']['id']
+
+def result_for(i):
+    global WORKSPACES
+    global CURRENT
+    if CURRENT == i:
+        return 'current'
+    elif i in WORKSPACES:
+        return 'used'
+    else:
+        return 'unused'
+
+def print_result():
+    result = '(box :class "workspaces"'
+    result += ' :orientation "h"'
+    result += ' :halign "start"'
+    result += ' :valign "center"'
+    result += ' :vexpand true'
+    result += ' :spacing 10'
+    
+    for i in range(SCREEN * 10 + 1, (SCREEN + 1) * 10 + 1):
+        result += f' (eventbox :height 12 :width 12 :class "workspace {result_for(i)}" :onclick "hyprctl dispatch split-workspace {i}")'
+
+    result += ')'
+    print(result, flush=True)
+
+print_result()
+
+def on_create(workspace):
+    workspace = int(workspace)
+    if not filter_for_screen(workspace):
+        return
+    global WORKSPACES
+    WORKSPACES.append(workspace)
+    print_result()
+
+def on_switch(workspace):
+    workspace = int(workspace)
+    if not filter_for_screen(workspace):
+        return
+    global CURRENT
+    CURRENT = workspace
+    print_result()
+
+def on_destroy(workspace):
+    workspace = int(workspace)
+    if not filter_for_screen(workspace):
+        return
+    global WORKSPACES
+    WORKSPACES.remove(workspace)
+    print_result()
+
+client = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
+client.connect(socket_path)
+
+while True:
+    line = socket.SocketIO(client, 'r').readline().decode('utf-8')
+    if not line:
+        break
+
+    cmd, value = line.split('>>', 1)
+    
+    if cmd == "createworkspace":
+        on_create(value)
+    elif cmd == "workspace":
+        on_switch(value)
+    elif cmd == "destroyworkspace":
+        on_destroy(value)
+
+client.close()
