@@ -32,6 +32,7 @@ curl -s -L https://raw.githubusercontent.com/mrdev023/ansible_perso/fedora/confi
 
 - https://github.com/id101010/ansible-archlinux/
 - https://github.com/markosamuli/ansible-asdf
+- https://www.nerdfonts.com/cheat-sheet?set=nf-fa-
 
 # Color palette
 
