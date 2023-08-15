@@ -8,7 +8,7 @@
 ;; Widgets
 (defwidget sidestuff []
   (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
-    (metric :label "🔊"
+    (metric :label ""
             :value volume
             :onchange "scripts/setvol {}%")
     time))
