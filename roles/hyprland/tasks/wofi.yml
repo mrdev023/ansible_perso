@@ -1,0 +1,17 @@
+---
+
+- name: Check directory exist
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: '0700'
+  loop:
+    - ~/.config/hypr/wofi/
+
+- name: Copy wofi conf
+  ansible.builtin.template:
+    src: "wofi/{{ item.file }}"
+    dest: "~/.config/hypr/wofi/{{ item.file }}"
+    mode: "{{ item.mode }}"
+  loop:
+    - { file: style.css, mode: '0600' }

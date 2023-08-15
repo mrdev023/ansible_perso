@@ -1,0 +1,54 @@
+* {
+    font-family: 'FiraCode Nerd Font';
+}
+
+window {
+    background-color: {{ colors.background }};
+    border-radius: 10px;
+}
+
+#input {
+    margin: 5px;
+    border: none;
+    background-color: {{ colors.background }};
+    color: {{ colors.on_background }};
+}
+
+/* search icon */
+#input:first-child > :nth-child(1) {
+    color: {{ colors.on_background }};
+}
+
+/* clear icon */
+#input:first-child > :nth-child(4){
+    color: {{ colors.on_background }};
+}
+
+#inner-box {
+    background-color: {{ colors.background }};
+
+}
+
+#outer-box {
+    margin: 5px;
+    padding:20px;
+    background-color: {{ colors.background }};
+}
+
+#scroll {
+}
+
+#entry {
+    border-radius: 10px;
+}
+
+#text {
+    padding: 5px;
+    background-color: {{ colors.background }};
+    color: {{ colors.on_background }};
+}
+
+#text:selected, #entry:selected {
+    background-color: {{ colors.primary }};
+    color: {{ colors.on_primary }};
+}

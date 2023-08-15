@@ -60,6 +60,11 @@ Hyperland:
 - Active window border
 - Active window shadow
 
+Wofi:
+
+- Entry selected
+- Text selected
+
 ## on_primary_container
 
 Dunst:
@@ -100,6 +105,12 @@ Hyperland:
 
 - Inactive window border
 - Inactive window shadow
+
+Wofi:
+
+- Window background
+- Text
+- Entry
 
 ## on_background
 
