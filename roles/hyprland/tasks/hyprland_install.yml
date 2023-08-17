@@ -11,6 +11,7 @@
   ansible.builtin.dnf:
     name:
       - hyprland-nvidia
+      - pulseaudio-utils # For pactl (Control sound)
       - hyprpicker # Colorpicker
       - wl-clipboard # For hyprpicker
       - xdg-desktop-portal-hyprland # Screensharing
