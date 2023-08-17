@@ -9,6 +9,10 @@ monitors:
 
 font: 'FiraCode Nerd Font'
 
+keyboard:
+  layout: us
+  variant: altgr-intl
+
 colors:
   primary: '#ffade2'
   on_primary: '#5f004e'
