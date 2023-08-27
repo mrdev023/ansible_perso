@@ -11,6 +11,7 @@
   ansible.builtin.dnf:
     name:
       - hyprland-nvidia
+      - polkit-kde # For ask sudo perm
       - pulseaudio-utils # For pactl (Control sound)
       - hyprpicker # Colorpicker
       - wl-clipboard # For hyprpicker
