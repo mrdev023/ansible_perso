@@ -5,9 +5,7 @@
 shell: bash
 
 monitors:
-  - { name: 'DP-3', resolution: '1920x1080@60', position: '0x0', scale: '1' }
-  - { name: 'DP-2', resolution: '1920x1080@60', position: '1920x0', scale: '1' }
-  - { name: 'DP-1', resolution: '1360x768@60', position: '3840x0', scale: '1' }
+  - { name: 'DP-2', resolution: '5120x1440@240', position: '0x0', scale: '1', other: ',bitdepth,10' }
 
 font: 'FiraCode Nerd Font'
 

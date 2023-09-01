@@ -7,7 +7,7 @@
 
 # See https://wiki.hyprland.org/Configuring/Monitors/
 {% for monitor in monitors %}
-monitor={{ monitor.name }},{{ monitor.resolution }},{{ monitor.position }},{{ monitor.scale }}
+monitor={{ monitor.name }},{{ monitor.resolution }},{{ monitor.position }},{{ monitor.scale }}{{ monitor.other }}
 {% endfor %}
 
 
